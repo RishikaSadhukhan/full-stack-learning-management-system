@@ -1,242 +1,316 @@
-# EduTrack LMS — Setup Guide
+# EduTrack LMS
 
-## What You're Getting
-
-A full-stack Learning Management System with:
-- **Instructor** — create courses, modules, lessons (with video), assignments, grade students, view analytics
-- **Student** — browse & enroll in courses, watch videos with progress tracking, submit assignments, earn certificates, receive notifications
-
----
-
-## Prerequisites
-
-Install these before starting:
-
-| Tool | Download |
-|------|----------|
-| Node.js (v18+) | https://nodejs.org |
-| MySQL (v8+) | https://dev.mysql.com/downloads/installer/ |
+![React](https://img.shields.io/badge/React-Frontend-blue)
+![Node.js](https://img.shields.io/badge/Node.js-Backend-green)
+![Express](https://img.shields.io/badge/Express-API-lightgrey)
+![MySQL](https://img.shields.io/badge/MySQL-Database-orange)
+![JWT](https://img.shields.io/badge/JWT-Authentication-yellow)
+![Status](https://img.shields.io/badge/Status-Completed-success)
 
 ---
 
-## Step 1 — Set Up the Database
+## Overview
 
-1. Open **MySQL Workbench** or the MySQL command line
-2. Run the schema file to create all tables:
+EduTrack LMS is a full-stack Learning Management System designed to provide a complete online learning experience for both instructors and students.
 
-```sql
-SOURCE path\to\edutrack\backend\config\schema.sql;
-```
+The platform enables instructors to create and manage courses, upload video lessons, assign coursework, track learner progress, and analyze performance. Students can enroll in courses, watch lessons, submit assignments, monitor progress, and earn completion certificates.
 
-Or paste the contents of `backend/config/schema.sql` directly into MySQL Workbench and execute it.
+Built using React, Node.js, Express, and MySQL, EduTrack LMS offers a modern and scalable educational platform with secure authentication and role-based access control.
 
 ---
 
-## Step 2 — Configure Backend
+## Technologies Used
 
-1. Open `backend/.env`
-2. Update your MySQL password:
+### Frontend
 
-```
-DB_PASSWORD=your_actual_mysql_password
-```
+* React.js
+* React Router DOM
+* Axios
+* React Hot Toast
+* Recharts
+* Custom CSS
 
-Leave everything else as-is for local development.
+### Backend
+
+* Node.js
+* Express.js
+* JWT Authentication
+* bcryptjs
+* Multer File Uploads
+
+### Database
+
+* MySQL
+* mysql2 Driver
+
+### Tools
+
+* Git & GitHub
+* VS Code
+* Postman
+* npm
 
 ---
 
-## Step 3 — Install & Run Backend
+## Features
 
-Open a terminal in the `backend/` folder:
+### Authentication
+
+* User Registration & Login
+* JWT-Based Authentication
+* Role-Based Access Control
+* Protected Routes
+* Profile Management
+
+### Instructor Features
+
+* Create Courses
+* Manage Course Content
+* Create Modules and Lessons
+* Upload Video Lessons
+* Publish Courses
+* Create Assignments
+* Grade Student Submissions
+* View Course Analytics
+* Track Student Progress
+
+### Student Features
+
+* Browse Available Courses
+* Enroll in Courses
+* Watch Video Lessons
+* Automatic Progress Tracking
+* Submit Assignments
+* View Grades and Feedback
+* Receive Notifications
+* Download Course Certificates
+
+### Learning Management
+
+* Structured Course Modules
+* Video-Based Learning
+* Progress Monitoring
+* Assignment Management
+* Performance Analytics
+* Certificate Generation
+
+---
+
+## User Capabilities
+
+### Instructors Can
+
+* Create and manage courses
+* Upload educational video content
+* Organize modules and lessons
+* Publish courses
+* Create assignments
+* Grade submissions
+* Track student performance
+* Analyze course engagement
+
+### Students Can
+
+* Register and enroll in courses
+* Watch learning videos
+* Track course progress
+* Submit assignments
+* View grades and feedback
+* Receive notifications
+* Earn and download certificates
+
+---
+
+## Development Process
+
+The project was developed using a full-stack architecture with React, Express, Node.js, and MySQL.
+
+Development began with database design and API planning, followed by authentication implementation, course management, lesson creation, assignment workflows, progress tracking, analytics, certificate generation, and notification systems.
+
+The frontend and backend were integrated using REST APIs, followed by extensive testing and debugging to ensure smooth communication between all components.
+
+---
+
+## How I Built This Project
+
+1. Designed LMS architecture and workflow.
+2. Created MySQL database schema and relationships.
+3. Developed REST APIs using Express.js.
+4. Implemented JWT authentication and authorization.
+5. Built instructor and student dashboards.
+6. Developed course, module, and lesson management.
+7. Integrated video upload functionality using Multer.
+8. Implemented assignment and grading systems.
+9. Added progress tracking and analytics.
+10. Tested and optimized the complete application.
+
+---
+
+## What I Learned
+
+Through this project, I gained practical experience in:
+
+* Full-Stack Development
+* React Application Development
+* REST API Design
+* Express.js Backend Development
+* JWT Authentication
+* MySQL Database Design
+* File Upload Management
+* Role-Based Authorization
+* Frontend-Backend Integration
+* Git & GitHub Workflow
+* Debugging and Problem Solving
+
+---
+
+## Future Improvements
+
+Possible future enhancements include:
+
+* Live Online Classes
+* Video Streaming Optimization
+* AI-Powered Learning Recommendations
+* Discussion Forums
+* Course Reviews and Ratings
+* Payment Gateway Integration
+* Email Notifications
+* Mobile Application Support
+* Cloud Storage Integration
+* Real-Time Chat System
+
+---
+
+## Installation & Setup
+
+### Clone Repository
 
 ```bash
+git clone https://github.com/RishikaSadhukhan/full-stack-learning-management-system.git
+
+cd full-stack-learning-management-system
+```
+
+### Database Setup
+
+1. Install MySQL Server
+2. Open MySQL Workbench
+3. Execute:
+
+```sql
+SOURCE backend/config/schema.sql;
+```
+
+Or run the contents of `schema.sql` manually.
+
+---
+
+### Backend Setup
+
+```bash
+cd backend
+
 npm install
+
 npm run dev
 ```
 
-You should see:
-```
-✅ MySQL connected successfully
-🚀 EduTrack server running on http://localhost:5000
+Backend:
+
+```text
+http://localhost:5000
 ```
 
 ---
 
-## Step 4 — Install & Run Frontend
-
-Open a **second terminal** in the `frontend/` folder:
+### Frontend Setup
 
 ```bash
+cd frontend
+
 npm install
+
 npm start
 ```
 
-Your browser will open at **http://localhost:3000**
+Frontend:
 
----
-
-## How to Use
-
-### As an Instructor
-1. Go to http://localhost:3000/register
-2. Select **Instructor** and create an account
-3. From your dashboard, click **Create Course**
-4. Fill in course details and save
-5. In the edit view, add **Modules** and **Lessons** (upload videos)
-6. **Publish** the course so students can find it
-7. Add **Assignments** from the Assignments tab
-8. View **Analytics** to track student progress
-9. Grade submissions from the **Submissions** page
-
-### As a Student
-1. Register as a **Student**
-2. Browse courses and click **Enroll**
-3. Watch video lessons — progress is saved automatically every 10 seconds
-4. Submit assignments (text + file upload)
-5. View your grades and instructor feedback
-6. Once you reach 90% lesson completion, click **Get Certificate**
-7. Download your certificate as a PDF
+```text
+http://localhost:3000
+```
 
 ---
 
 ## Project Structure
 
-```
-edutrack/
+```text
+full-stack-learning-management-system/
+│
 ├── backend/
 │   ├── config/
-│   │   ├── database.js        # MySQL connection pool
-│   │   └── schema.sql         # All database tables
-│   ├── controllers/           # Business logic for each feature
-│   │   ├── authController.js
-│   │   ├── courseController.js
-│   │   ├── moduleController.js
-│   │   ├── progressController.js
-│   │   ├── assignmentController.js
-│   │   ├── certificateController.js
-│   │   └── notificationController.js
+│   ├── controllers/
 │   ├── middleware/
-│   │   ├── auth.js            # JWT verification + role guards
-│   │   └── upload.js          # Multer file upload handling
-│   ├── routes/                # Express route definitions
-│   ├── uploads/               # Uploaded files (auto-created)
-│   ├── .env                   # Environment variables
-│   └── server.js              # Entry point
+│   ├── routes/
+│   ├── uploads/
+│   ├── server.js
 │
-└── frontend/
-    ├── public/
-    │   └── index.html
-    └── src/
-        ├── context/
-        │   └── AuthContext.js  # Global auth state
-        ├── pages/
-        │   ├── auth/           # Login, Register
-        │   ├── instructor/     # Dashboard, CourseBuilder, Assignments, Analytics, Grading
-        │   └── student/        # Dashboard, Browse, CourseView, LessonPlayer, Assignments, Certificates, Notifications
-        ├── components/
-        │   └── common/
-        │       └── Layout.js   # Sidebar navigation
-        ├── styles/
-        │   └── global.css      # Design system
-        ├── utils/
-        │   └── api.js          # Axios with token injection
-        └── App.js              # Routes
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── context/
+│   │   ├── utils/
+│   │   └── styles/
+│
+├── README.md
 ```
 
 ---
 
-## API Endpoints Reference
+## Key Modules
 
-### Auth
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /api/auth/register | Register new user |
-| POST | /api/auth/login | Login |
-| GET | /api/auth/profile | Get profile |
-| PUT | /api/auth/profile | Update profile |
+### Authentication Module
 
-### Courses
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/courses | All published courses |
-| POST | /api/courses | Create course (instructor) |
-| GET | /api/courses/my-courses | Instructor's courses |
-| GET | /api/courses/enrolled | Student's enrolled courses |
-| GET | /api/courses/:id | Single course with modules |
-| PUT | /api/courses/:id | Update course |
-| DELETE | /api/courses/:id | Delete course |
-| POST | /api/courses/:id/enroll | Enroll in course |
+* Registration
+* Login
+* JWT Authorization
+* User Roles
 
-### Modules & Lessons
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /api/courses/:courseId/modules | Create module |
-| PUT | /api/modules/:id | Update module |
-| DELETE | /api/modules/:id | Delete module |
-| POST | /api/modules/:moduleId/lessons | Create lesson (with video) |
-| PUT | /api/lessons/:id | Update lesson |
-| DELETE | /api/lessons/:id | Delete lesson |
+### Course Management Module
 
-### Progress
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /api/lessons/:lessonId/progress | Update video progress |
-| GET | /api/courses/:courseId/progress | Get course progress |
-| GET | /api/courses/:courseId/lesson-progress | Get all lesson progress |
-| GET | /api/courses/:courseId/analytics | Instructor analytics |
+* Course Creation
+* Publishing
+* Enrollment
 
-### Assignments
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /api/courses/:courseId/assignments | Create assignment |
-| GET | /api/courses/:courseId/assignments | List assignments |
-| PUT | /api/assignments/:id | Update assignment |
-| DELETE | /api/assignments/:id | Delete assignment |
-| POST | /api/assignments/:id/submit | Submit assignment |
-| GET | /api/assignments/:id/submissions | Get all submissions |
-| PUT | /api/submissions/:id/grade | Grade a submission |
+### Lesson Management Module
 
-### Certificates
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /api/courses/:courseId/certificate | Issue certificate |
-| GET | /api/certificates | Student's certificates |
-| GET | /api/certificates/:certId/download | Download PDF |
+* Video Upload
+* Lesson Organization
+* Learning Progress
 
-### Notifications
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/notifications | Get all notifications |
-| GET | /api/notifications/unread-count | Unread count |
-| PUT | /api/notifications/:id/read | Mark as read |
-| PUT | /api/notifications/mark-all-read | Mark all as read |
+### Assignment Module
+
+* Assignment Creation
+* Submission Management
+* Grading System
+
+### Analytics Module
+
+* Student Progress Reports
+* Course Performance Metrics
+
+### Certification Module
+
+* Automated Certificate Generation
+* PDF Downloads
 
 ---
 
-## Common Issues
+## Author
 
-**"Can't connect to MySQL"**
-→ Make sure MySQL service is running. Check `DB_PASSWORD` in `.env`
+**Rishika Sadhukhan**
 
-**"Port 3000 already in use"**
-→ Another app is using port 3000. Close it or React will prompt you to use a different port.
+Computer Science Engineering Student
 
-**"Port 5000 already in use"**
-→ Change `PORT=5001` in `.env` and update `baseURL` in `frontend/src/utils/api.js`
-
-**Videos not playing**
-→ Make sure the backend is running. Videos are served from `http://localhost:5000/uploads/videos/`
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 18, React Router v6, Recharts, React Hot Toast |
-| Backend | Node.js, Express.js |
-| Database | MySQL 8 with mysql2 driver |
-| Auth | JWT + bcryptjs |
-| File Upload | Multer |
-| PDF Generation | PDFKit |
-| Styling | Custom CSS design system (dark theme) |
+Interested in Full-Stack Development, Software Engineering, Machine Learning, and building practical technology solutions.
